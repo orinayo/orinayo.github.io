@@ -1,0 +1,43 @@
+/*
+Remove browser default padding and margin
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/*
+Make margin, padding and font-sizing easy
+1rem = root element font-size
+i.e. 1rem = 10px (62.5% of 16px)
+*/
+html {
+  font-size: 62.5%;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  
+  @include respond(tab-land) {
+    font-size: 56.25% // 1rem = 9px (56.25% of 16px)
+  }
+
+  @include respond(tab-port) {
+    font-size: 50% // 1rem = 8px (50% of 16px)
+  }
+  
+  @include respond(big-desktop) {
+    font-size: 75% // 1rem = 12px (75% of 16px)
+  }
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
